@@ -1,28 +1,9 @@
 header{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     justify-items: center;
 }
 
-a {
-    text-decoration: none;
-}
-
-.nav_menu > ul{
-    display: flex;
-    justify-content: space-around;
-    justify-items: center; 
-}   
-
-.nav_menu > ul > li {
-    list-style: none;
-    margin-left: 15px;
-}
-
-.search_form {
-    display: flex;
-    align-items: center;
-}
 .create_form {
     width: 200px;
     display: flex;
@@ -35,7 +16,8 @@ a {
     margin-top: 10px;
 }
 
-.main{
+.main_content{
+    margin-top: 20px;
     display: flex;
 }
 
@@ -44,6 +26,17 @@ a {
     width: 50%;
 }
 .right_bar {
-    display: inline-block;
+    display: inline-flex;
     width: 50%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.book{
+    height: 200px; 
+    width: 200px; 
+    margin: 10px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
 }

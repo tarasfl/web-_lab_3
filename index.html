@@ -4,15 +4,11 @@
         <meta charset='utf-8'>
         <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
         
+            <!-- UUID library -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.2.0/uuid.min.js"></script>
     </head>
     <body>
         <header>
-            <nav class="nav_menu">
-                <ul>
-                    <li><a>My Books</a></li>
-                    <li><a>Create Book</a></li>
-                </ul>
-            </nav>
             <form class="search_form" role="search" id="search_book">
                 <input placeholder="search...">
                 <button type="submit" id="search_button">search</button>
@@ -32,7 +28,8 @@
                     <button type="submit" id="create_button">Create book</button>
                 </form>
             </div>
-            <div class="right_bar"></div>
+            <div class="right_bar" id="books_content">
+            </div>
         </main>
         <script type="module" src="./js/index.js"></script>
     </body>
