@@ -1,0 +1,49 @@
+header{
+    display: flex;
+    justify-content: space-around;
+    justify-items: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav_menu > ul{
+    display: flex;
+    justify-content: space-around;
+    justify-items: center; 
+}   
+
+.nav_menu > ul > li {
+    list-style: none;
+    margin-left: 15px;
+}
+
+.search_form {
+    display: flex;
+    align-items: center;
+}
+.create_form {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#create_button {
+    width: 100px;
+    margin-top: 10px;
+}
+
+.main{
+    display: flex;
+}
+
+.left_bar{
+    display: inline-block;
+    width: 50%;
+}
+.right_bar {
+    display: inline-block;
+    width: 50%;
+}
