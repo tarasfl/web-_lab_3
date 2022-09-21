@@ -4,7 +4,7 @@ const price = document.getElementById('price')
 const right_bar = document.getElementById('books_content')
 
 
-const get_id = (id) => `item-${id}`;
+const get_id = (id) => `book-${id}`;
 
 const item_template = ({id, amount_of_pages, author, price}) => `
     <div id='${get_id(id)}' class = 'book'>
@@ -34,3 +34,8 @@ export const add_item_to_html = ({id, amount_of_pages, author, price}) => {
         item_template({id, amount_of_pages, author, price})
     )
 } 
+
+export const render_books = (books) => {
+    right_bar.innerHTML = ''
+    books.forEach(add_item_to_html);
+}

@@ -40,3 +40,7 @@ header{
     justify-content: flex-start;
     flex-direction: column;
 }
+
+#sort_button {
+    margin-left: 15px;
+}

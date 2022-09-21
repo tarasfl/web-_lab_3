@@ -1,11 +1,14 @@
 import {
     get_input,
     clear_input,
-    add_item_to_html
+    add_item_to_html,
+    render_books
 }from './dom_util.js'
 const search_button = document.getElementById('search_button');
 const clear_button = document.getElementById('clear_button');
-const create_button = document.getElementById('create_button')
+const create_button = document.getElementById('create_button');
+const search_input = document.getElementById('search_input');
+const sort_button = document.getElementById('sort_button');
 
 let books = []
 
@@ -32,3 +35,30 @@ create_button.addEventListener('click', (event) =>
     clear_input();
     add_item({amount_of_pages, author, price})
 });
+
+search_button.addEventListener('click', (event) =>{
+    event.preventDefault()
+
+    console.log(books.author)
+
+    let found_books = []
+    found_books = books.filter(book => book.author.search(search_input.value) !== -1) 
+    
+    console.log(found_books)
+    render_books(found_books)
+
+})
+
+clear_button.addEventListener('click', (event) => {
+    event.preventDefault()
+
+    render_books(books)
+    search_input.value = ''
+})
+
+sort_button.addEventListener('click', (event) => {
+    event.preventDefault()
+
+    books.sort( =>{return a-b})
+    console.log(books)
+})
