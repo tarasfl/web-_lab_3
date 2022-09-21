@@ -2,8 +2,7 @@ import {
     get_input,
     clear_input,
     add_item_to_html,
-    render_books,
-    update_pages
+    render_books
 }from './dom_util.js'
 const search_button = document.getElementById('search_button');
 const clear_button = document.getElementById('clear_button');

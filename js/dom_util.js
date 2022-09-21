@@ -40,7 +40,3 @@ export const render_books = (books) => {
     right_bar.innerHTML = ''
     books.forEach(add_item_to_html);
 }
-
-export const update_pages = (total, amount_of_pages) =>{
-    return total+amount_of_pages
-}
