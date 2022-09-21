@@ -44,3 +44,7 @@ header{
 #sort_button {
     margin-left: 15px;
 }
+
+.none{
+    display: none;
+}

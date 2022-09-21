@@ -2,7 +2,9 @@ import {
     get_input,
     clear_input,
     add_item_to_html,
-    render_books
+    render_books,
+    edit_id,
+    get_id
 }from './dom_util.js'
 const search_button = document.getElementById('search_button');
 const clear_button = document.getElementById('clear_button');
@@ -10,6 +12,8 @@ const create_button = document.getElementById('create_button');
 const search_input = document.getElementById('search_input');
 const sort_button = document.getElementById('sort_button');
 const pages = document.getElementById('total_pages');
+const create_form = document.getElementById('create_form')
+const create_book = document.getElementById('create_book')
 
 let books = []
 
@@ -24,6 +28,7 @@ const add_item  = ({amount_of_pages, author, price}) => {
     }
 
     books.push(new_item)
+    
 
     add_item_to_html(new_item)
     let total_pages = pages.innerHTML
@@ -34,7 +39,6 @@ create_button.addEventListener('click', (event) =>
 {
     event.preventDefault();
     const {amount_of_pages, author, price} = get_input();
-    console.log(amount_of_pages)
     clear_input();
     add_item({amount_of_pages, author, price})
 });
@@ -42,12 +46,8 @@ create_button.addEventListener('click', (event) =>
 search_button.addEventListener('click', (event) =>{
     event.preventDefault()
 
-    console.log(books.author)
-
     let found_books = []
     found_books = books.filter(book => book.author.search(search_input.value) !== -1) 
-    
-    console.log(found_books)
     render_books(found_books)
 
 })
@@ -64,4 +64,9 @@ sort_button.addEventListener('click', (event) => {
 
     books.sort((a, b) => a.price - b.price)
     render_books(books)
+})
+
+create_book.addEventListener('click', () =>{
+    create_form.classList.toggle('create_form')
+    create_form.classList.toggle('none')
 })

@@ -4,7 +4,8 @@ const price = document.getElementById('price')
 const right_bar = document.getElementById('books_content')
 
 
-const get_id = (id) => `book-${id}`;
+export const get_id = (id) => `book-${id}`;
+export const edit_id = (id) => `edit-${id}`
 
 const item_template = ({id, amount_of_pages, author, price}) => `
     <div id='${get_id(id)}' class = 'book'>
@@ -16,11 +17,19 @@ const item_template = ({id, amount_of_pages, author, price}) => `
 
 
 export const get_input = () => {
-    return {
-        amount_of_pages: amount_of_pages.value,
+    let pages_val;
+    let price_val;
+    pages_val = parseInt(amount_of_pages.value)
+    price_val = parseInt(price.value)
+    if(isNaN(price_val) || isNaN(pages_val)){
+        alert("Please type into amount of pages int type \nAuthor -string value \nPrice-int value")
+        
+    }else{
+        return {
+        amount_of_pages: pages_val,
         author: author.value,
-        price: price.value
-    }   
+        price: price_val
+    }}   
 }
 
 export const clear_input = () => {
@@ -33,7 +42,6 @@ export const add_item_to_html = ({id, amount_of_pages, author, price}) => {
         'afterbegin', 
         item_template({id, amount_of_pages, author, price})
     )
-
 } 
 
 export const render_books = (books) => {
