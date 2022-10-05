@@ -4,6 +4,10 @@ import {
     add_item_to_html,
     render_books
 }from './dom_util.js'
+
+import {
+    get_all_books
+}from './api.js'
 const search_button = document.getElementById('search_button');
 const clear_button = document.getElementById('clear_button');
 const create_button = document.getElementById('create_button');
@@ -65,3 +69,6 @@ sort_button.addEventListener('click', (event) => {
     books.sort((a, b) => a.price - b.price)
     render_books(books)
 })
+
+
+get_all_books().then(console.log)
