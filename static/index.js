@@ -6,7 +6,10 @@ import {
 }from './dom_util.js'
 
 import {
-    get_all_books
+    get_all_books,
+    post_books,
+    update_book,
+    delete_book
 }from './api.js'
 const search_button = document.getElementById('search_button');
 const clear_button = document.getElementById('clear_button');
@@ -15,7 +18,8 @@ const search_input = document.getElementById('search_input');
 const sort_button = document.getElementById('sort_button');
 const pages = document.getElementById('total_pages');
 
-let books = []
+let books = books_arr
+let books_array = books_arr
 
 
 const add_item  = ({amount_of_pages, author, price}) => {
@@ -34,14 +38,14 @@ const add_item  = ({amount_of_pages, author, price}) => {
     pages.innerHTML = parseInt(total_pages) + parseInt(amount_of_pages);
 } 
 
-create_button.addEventListener('click', (event) => 
-{
-    event.preventDefault();
-    const {amount_of_pages, author, price} = get_input();
-    console.log(amount_of_pages)
-    clear_input();
-    add_item({amount_of_pages, author, price})
-});
+
+export const refetch_all_books = async () => {
+    const all_books = await get_all_books();
+  
+    books = all_books;
+  
+    render_books(books);
+  };
 
 search_button.addEventListener('click', (event) =>{
     event.preventDefault()
@@ -70,5 +74,4 @@ sort_button.addEventListener('click', (event) => {
     render_books(books)
 })
 
-
-get_all_books().then(console.log)
+refetch_all_books()

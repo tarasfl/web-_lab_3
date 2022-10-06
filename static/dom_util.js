@@ -5,12 +5,15 @@ const right_bar = document.getElementById('books_content')
 
 
 const get_id = (id) => `book-${id}`;
+const edit_id = (id) => `edit-${id}`;
 
 const item_template = ({id, amount_of_pages, author, price}) => `
     <div id='${get_id(id)}' class = 'book'>
         <p>Amount of pages: ${amount_of_pages}</p>
         <p>Author: ${author}</p>
         <p>Price: ${price}</p>
+        <a><input type="submit" value="Edit" id="edit-button"></a>
+        <a><input type="submit" value="Delete" id="delete-button"></a>
     </div>
 `;
 

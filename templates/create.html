@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script type="module"
+        src = "{{ url_for('static', filename = 'index.js') }}" ></script>
+       <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename = 'css/main.css') }}">
+        
+
+    </head>
+    <body>
+
+<form class="create_form" action = "/create.html/insert" method="POST"> 
+    <label>Amount of pages</label>
+    <input type="text" id="amount_of_pages" name="amount_of_pages">
+    <label for="author">Author</label>
+    <input type="text" id="author" name="author">
+    <label for="price">Price</label>
+    <input type="text" id="price" name="price">
+    <button type="submit" id="create_button">Create book</button>
+</form>
+
+</body>
+</html>

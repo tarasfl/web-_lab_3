@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script type="module"
+         src = "{{ url_for('static', filename = 'index.js') }}" ></script>
+        <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename = 'css/main.css') }}">
+        
+            <!-- UUID library -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.2.0/uuid.min.js"></script>
+    </head>
+    <body>
+
+        {% for i in books %}
+<form class="create_form" action= 'update' method="post">
+    <label>Book id</label>
+    <input type="text" id="book_id" name="book_id" value="{{i.id}}">
+    <label>Amount of pages</label>
+    <input type="text" id="amount_of_pages" name="amount_of_pages" value="{{i.amount_of_pages}}">
+    <label for="author">Author</label>
+    <input type="text" id="author" name="author" value="{{i.author}}">
+    <label for="price">Price</label>
+    <input type="text" id="price" name="price" value="{{i.price}}">
+    <button type="submit" id="create_button">Edit book</button>
+</form>
+{% endfor %}
+</body>
+</html>

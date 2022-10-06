@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+            <script type="module" 
+            src = "{{ url_for('static', filename = 'index.js') }}" ></script>
+           <link rel='stylesheet' type='text/css' media='screen' href="{{ url_for('static', filename = 'css/main.css') }}">
+            <script>
+                let books_arr = '{{books}}';
+            </script>
+    </head>
+    <body>
+        <header>
+            <form class="search_form" role="search" id="search_book">
+                <input placeholder="search..." id="search_input">
+                <button type="submit" id="search_button">search</button>
+                <button type="submit" id="clear_button">clear</button>
+            </form>
+            <button type="submit" id="sort_button">sort by price</button>
+        </header>
+        <main class="main_content">
+            <div class="left_bar">
+                <h2>Create Book</h2>
+                
+                <a href="/create.html">Create book</a>
+
+            </div>
+            <div class="right_bar" id="books_content">
+                {% for i in books %}
+                <div id='{{i.id}}' class = 'book'>
+                    <p>Amount of pages: {{i.amount_of_pages}}</p>
+                    <p>Author: {{i.author}}</p>
+                    <p>Price: {{i.price}}</p>
+                    <a href="edit.html/{{i.id}}">Edit</a>
+                    <a href="delete/{{i.id}}">delete</a>
+                </div>
+                {% endfor %}
+            </div>
+        </main>
+    </body>
+</html>
